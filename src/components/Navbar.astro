@@ -1,0 +1,27 @@
+---
+interface Props {
+	title: string;
+	subItem: string[];
+}
+
+const { title, subItem } = Astro.props;
+---
+
+<div class="fixed navbar bg-base-100">
+  <div class="flex-1">
+    <a class="btn btn-ghost text-xl">{title}</a>
+  </div>
+  <div class="flex-none">
+    <ul class="menu menu-horizontal px-1">
+      <li><a>Link</a></li>
+      <li>
+        <details>
+          <summary>Parent</summary>
+          <ul class="bg-base-100 rounded-t-none p-2">
+            {subItem.map(item => <li class="z-50"><a>{item}</a></li>)}
+          </ul>
+        </details>
+      </li>
+    </ul>
+  </div>
+</div>
